@@ -7,8 +7,13 @@ Array.prototype.myEach = function(callbackFn) {
 };
 
 // MAP //
-Array.prototype.myMap = function() {
-
+Array.prototype.myMap = function(callbackFn) {
+    var mapArray = [];
+	for (let i = 0; i < this.length; i++) {
+      if (this[i] === undefined) continue;
+      mapArray.push(callbackFn(this[i], i, this));
+    }
+  return mapArray;
 };
 
 // FILTER //

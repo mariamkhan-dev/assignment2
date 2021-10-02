@@ -32,8 +32,31 @@ Array.prototype.myEvery = function() {
 };
 
 // REDUCE //
-Array.prototype.myReduce = function() {
-
+Array.prototype.myReduce = function(callbackFn, initialValue) {
+    // Initializing variable that will keep track of result as reducer walks through array
+    var running = null;
+    // Checks if initial value is provided and uses it if it is
+    if (initialValue != undefined) {
+        running = initialValue;
+    }
+    for (let i = 0; i < this.length; i++) {
+        if (this[i] === undefined) continue;
+        // Case where array length is 1
+        if (this.length === 1) {
+            running += this[i];
+            return running;
+        }
+        // Applies callback fn to first two elements of array 
+        if (i === 0 && this.length >= 2) {
+            running += callbackFn(this[i], this[i+1]);
+            i++;
+        }
+        // Continues applying callback fn to rest of array after first 2 elements done
+        else {
+            running = callbackFn(running, this[i]);
+        };
+    };
+    return running;
 };
 
 // INCLUDES //

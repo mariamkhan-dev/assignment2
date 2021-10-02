@@ -27,8 +27,16 @@ Array.prototype.mySome = function() {
 };
 
 // EVERY //
-Array.prototype.myEvery = function() {
-
+Array.prototype.myEvery = function(callbackFn) {
+  for (let i = 0; i < this.length; i++) {
+    if (this[i] === undefined) continue;
+    if (callbackFn(this[i], i, this) === false) {
+      return false;
+    }
+    else if (i === this.length-1 && callbackFn(this[i], i, this) === true) {
+      return true;
+    }
+  }
 };
 
 // REDUCE //

@@ -58,9 +58,16 @@ Array.prototype.myPush = function(...args) {
 	return this.length;
 };
 
-// LASTINDEXOF //
-Array.prototype.myLastIndexOf = function() {
-
+//LASTINDEXOF//
+Array.prototype.myLastIndexOf = function(target) {
+	for (let i = (this.length-1); i < this.length; i--) {
+      if (this[i] === target) {
+        return i;
+      }
+      else if (i === 0 && this[i] !== target) {
+        return -1;
+      }
+    };
 };
 
 // KEYS //

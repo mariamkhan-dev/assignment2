@@ -103,8 +103,12 @@ Array.prototype.myLastIndexOf = function() {
 };
 
 // KEYS //
-Object.grabKeys = function() {
-
+Object.grabKeys = function(obj) {
+    var objKeys = [];
+    for (const property in obj) {
+        objKeys.push(property);
+    }
+    return objKeys;
 };
 
 // VALUES //

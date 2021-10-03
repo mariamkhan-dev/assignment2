@@ -22,8 +22,16 @@ Array.prototype.myFilter = function() {
 };
 
 // SOME //
-Array.prototype.mySome = function() {
-
+Array.prototype.mySome = function(callbackFn) {
+    for (let i = 0; i < this.length; i++) {
+        var bool = false;
+        if (this[i] === true) continue;
+        bool = callbackFn(this[i], i, this);
+        if (bool === true) {
+          return bool;
+        }
+      }
+    return bool; 
 };
 
 // EVERY //

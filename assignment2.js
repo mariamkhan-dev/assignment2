@@ -74,10 +74,19 @@ Array.prototype.myReduce = function(callbackFn, initialValue) {
     return running;
 };
 
-// INCLUDES //
-Array.prototype.myIncludes = function() {
-
-};
+//INCLUDES//
+Array.prototype.myIncludes = function(searchElement,fromIndex) {
+  for (let i = 0; i <= this.length; i++) {
+    if(this[i]===undefined) continue;
+    if(this[i]===searchElement){
+      return true;
+    }
+  } //Closes For Loop
+  if(fromIndex >= this.length){
+    return false;
+  }
+  return false;
+};//Closes Function
 
 // INDEXOF //
 Array.prototype.myIndexOf = function(target) {

@@ -69,6 +69,10 @@ Object.grabKeys = function() {
 };
 
 // VALUES //
-Object.grabValues = function() {
-
+Object.grabValues = function(obj) {
+  var passed = [];
+  for(const property in obj){
+    passed.push(property);
+  }
+  return passed
 };

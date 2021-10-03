@@ -17,8 +17,15 @@ Array.prototype.myMap = function(callbackFn) {
 };
 
 // FILTER //
-Array.prototype.myFilter = function() {
-
+Array.prototype.myFilter = function(callbackFn) {
+  var passed = [];
+	for (let i = 0; i < this.length; i++) {
+      if (this[i] === undefined) continue;
+      if (callbackFn(this[i], i, this) === true) {
+      passed.push(this[i]);
+      }
+    }
+  return passed;
 };
 
 // SOME //
